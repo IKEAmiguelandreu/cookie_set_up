@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>Test POPUP</title>
+	<script type="text/javascript" src="ls_script_4.js"></script>
+	<link rel="stylesheet" href="geo_selector.css"></style>
+</head>
+<body>
+	<div style="height:1550px; background-color: black;"></div>
+	<div class="contenedor-popup" id="geoPopup">
+		<div class="popup">
+			<p onclick="omitirPopup()" class="cerrar-popup">&times</p>
+			<p class="tit-popup">Bienvenido a IKEA</p>
+	    	<p class="body-popup">Parece que tu página habitual es IKEA <span id="preferedLoc_1"></span>.<br>¿Quieres volver a esa página?</p>
+	    	<p class="p-btn-popup" onclick="moveTo()">Sí, ir a IKEA <span id="preferedLoc_3"></span><span class="cta-popup-islas">›</span></p>
+	    	<p onclick="changeValue()" class="p-keep-popup">No gracias, perfiero quedarme en IKEA Península</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+	getCookie();	
+	</script>
+</body>
+</html>
