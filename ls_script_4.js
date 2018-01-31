@@ -8,7 +8,8 @@ function setCookie() {
 		d = new Date();
 		d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
 		expires = "expires="+d.toUTCString();
-		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		domain =".ikea.com";
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/; domain="+domain;
 	}
 
 
@@ -112,7 +113,7 @@ function redirectTo(islands_url){
 				i = cc.length+1;
 			}
 		}
-		if (c_val=="http://www.ikea.com/es/es/" || c_val=="http://ca.ikea.com/es/ca/" || c_val=="http://eu.ikea.com/es/eu/" || c_val =="https://www.ikea.com/es/es/" || c_val=="https://ca.ikea.com/es/ca/" || c_val=="https://eu.ikea.com/es/eu/"){
+		if (cookie_Check=="http://www.ikea.com/es/es/" || cookie_Check=="http://ca.ikea.com/es/ca/" || cookie_Check=="http://eu.ikea.com/es/eu/" || cookie_Check=="https://www.ikea.com/es/es/" || cookie_Check=="https://ca.ikea.com/es/ca/" || cookie_Check=="https://eu.ikea.com/es/eu/"){
 			islands_url+= "?switch";
 			if(islands_url=="//www.canarias.ikea.es/?switch"){
 				cname = "locationPreference";
@@ -120,7 +121,8 @@ function redirectTo(islands_url){
 				d = new Date();
 				d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
 				expires = "expires="+d.toUTCString();
-				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+				domain =".ikea.com";
+				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/; domain="+domain;
 			}
 			else if(islands_url=="//www.baleares.ikea.es/?switch"){
 				cname = "locationPreference";
@@ -128,7 +130,8 @@ function redirectTo(islands_url){
 				d = new Date();
 				d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
 				expires = "expires="+d.toUTCString();
-				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+				domain =".ikea.com";
+				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/; domain="+domain;
 			}
 		}
 		else{}
