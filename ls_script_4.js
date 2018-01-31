@@ -1,5 +1,3 @@
-/*COOKIES*/
-
 /*VAR DECLARATION*/
 var c_val, ca, cc, cname, cvalue, d, expires, url_switch, preferedID, preferedID_text, preferedID_url, cookie_Check, addAlign, marco, urlMarco;
 
@@ -7,10 +5,10 @@ var c_val, ca, cc, cname, cvalue, d, expires, url_switch, preferedID, preferedID
 function setCookie() {
 		cname = "locationPreference";
 		cvalue= "https://www.ikea.com/es/es/";
-	    d = new Date();
-	    d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-	    expires = "expires="+d.toUTCString();
-	    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		d = new Date();
+		d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+		expires = "expires="+d.toUTCString();
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 	}
 
 
@@ -25,6 +23,7 @@ function getCookie(){
 					revisarCookie(ca[1]);
 					i = cc.length+1;
 				}
+				else{}
 			}
 		}
 	}
@@ -35,8 +34,10 @@ function checkURL(){
 	if (url_switch[url_switch.length-1]=="?switch"){
 		setCookie();
 	}
+	else{
+		getCookie();
+	}
 }
-
 
 /*DECIDES IF POP UP SHOULD VE SHOWN OR NOT*/
 function revisarCookie(c_val){
@@ -62,7 +63,6 @@ function revisarCookie(c_val){
 	else{}
 }
 
-
 /*HANDLE POPUP FUNCTIONS*/
 function drawPopUp(preferedID){
 	document.getElementById("preferedLoc_1").innerHTML = preferedID[0];
@@ -78,6 +78,7 @@ function changeValue(){
 	callToIslands();
 	document.getElementById("geoPopup").style.display="none";
 }
+
 /*REDIRECT TO CUSTOMER PREFERED LOCATION*/
 function moveTo(){
 	window.location.replace(preferedID_url);
@@ -113,9 +114,23 @@ function redirectTo(islands_url){
 		}
 		if (c_val=="http://www.ikea.com/es/es/" || c_val=="http://ca.ikea.com/es/ca/" || c_val=="http://eu.ikea.com/es/eu/" || c_val =="https://www.ikea.com/es/es/" || c_val=="https://ca.ikea.com/es/ca/" || c_val=="https://eu.ikea.com/es/eu/"){
 			islands_url+= "?switch";
+			if(islands_url=="//www.canarias.ikea.es/?switch"){
+				cname = "locationPreference";
+				cvalue= "https://www.canarias.ikea.es/";
+				d = new Date();
+				d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+				expires = "expires="+d.toUTCString();
+				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+			}
+			else if(islands_url=="//www.baleares.ikea.es/?switch"){
+				cname = "locationPreference";
+				cvalue= "https://www.baleares.ikea.es/";
+				d = new Date();
+				d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+				expires = "expires="+d.toUTCString();
+				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+			}
 		}
 		else{}
-			document.location.href = islands_url;
+		document.location.href = islands_url;
 }
-
-/*COOKIES*/
