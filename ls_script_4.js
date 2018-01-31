@@ -1,3 +1,5 @@
+/*COOKIES*/
+
 /*VAR DECLARATION*/
 var c_val, ca, cc, cname, cvalue, d, expires, url_switch, preferedID, preferedID_text, preferedID_url, cookie_Check, addAlign, marco, urlMarco;
 
@@ -45,11 +47,11 @@ function revisarCookie(c_val){
 		else if(c_val=="http://www.baleares.ikea.es/" || c_val=="http://www.canarias.ikea.es/" || c_val=="https://www.baleares.ikea.es/" || c_val=="https://www.canarias.ikea.es/"){
 			if(c_val=="http://www.baleares.ikea.es/" || c_val=="https://www.baleares.ikea.es/") {
 				preferedID_text = "Baleares";
-				preferedID_url = "https://www.baleares.ikea.es/?switch";
+				preferedID_url = "//www.baleares.ikea.es/?switch";
 			}
 			else if(c_val=="http://www.canarias.ikea.es/" || c_val=="https://www.canarias.ikea.es/"){
 				preferedID_text = "Canarias";
-				preferedID_url = "https://www.canarias.ikea.es/?switch";
+				preferedID_url = "//www.canarias.ikea.es/?switch";
 			} 
 			preferedID = [preferedID_text, preferedID_url];
 			drawPopUp(preferedID);
@@ -91,10 +93,29 @@ function omitirPopup(){
 function callToIslands(addAlign){
 	addAlign = document.getElementsByClassName("footer-legal")[0];
 	marco = document.createElement("iframe");
-	urlMarco = "https://www.canarias.ikea.es/?switch=es";
+	urlMarco = "//www.canarias.ikea.es/?switch=es";
 	marco.src = urlMarco;
 	marco.style.display="none";
 	marco.style.width = "1px";
 	marco.style.height = "1px";
 	addAlign.appendChild(marco);
 }
+
+/*THIS FUNCTION WORKS WHEN CUSTOMER CLICKS ON ISLANDS IN HEADER*/
+function redirectTo(islands_url){
+	cc = document.cookie.split(";");
+		for(i = 0; i< cc.length; i++){ 
+			ca = cc[i].split("=");
+			if(ca[0]=="locationPreference" || ca[0]==" locationPreference"){
+				cookie_Check = ca[1];
+				i = cc.length+1;
+			}
+		}
+		if (c_val=="http://www.ikea.com/es/es/" || c_val=="http://ca.ikea.com/es/ca/" || c_val=="http://eu.ikea.com/es/eu/" || c_val =="https://www.ikea.com/es/es/" || c_val=="https://ca.ikea.com/es/ca/" || c_val=="https://eu.ikea.com/es/eu/"){
+			islands_url+= "?switch";
+		}
+		else{}
+			document.location.href = islands_url;
+}
+
+/*COOKIES*/
