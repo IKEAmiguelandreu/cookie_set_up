@@ -48,11 +48,11 @@ function revisarCookie(c_val){
 		else if(c_val=="http://www.baleares.ikea.es/" || c_val=="http://www.canarias.ikea.es/" || c_val=="https://www.baleares.ikea.es/" || c_val=="https://www.canarias.ikea.es/"){
 			if(c_val=="http://www.baleares.ikea.es/" || c_val=="https://www.baleares.ikea.es/") {
 				preferedID_text = "Baleares";
-				preferedID_url = "//www.baleares.ikea.es/?switch";
+				preferedID_url = "http://www.baleares.ikea.es/?switch";
 			}
 			else if(c_val=="http://www.canarias.ikea.es/" || c_val=="https://www.canarias.ikea.es/"){
 				preferedID_text = "Canarias";
-				preferedID_url = "//www.canarias.ikea.es/?switch";
+				preferedID_url = "http://www.canarias.ikea.es/?switch";
 			} 
 			preferedID = [preferedID_text, preferedID_url];
 			drawPopUp(preferedID);
@@ -94,7 +94,7 @@ function omitirPopup(){
 function callToIslands(addAlign){
 	addAlign = document.getElementsByClassName("footer-legal")[0];
 	marco = document.createElement("iframe");
-	urlMarco = "//www.canarias.ikea.es/?switch=es";
+	urlMarco = "http://www.canarias.ikea.es/?switch=es";
 	marco.src = urlMarco;
 	marco.style.display="none";
 	marco.style.width = "1px";
@@ -114,17 +114,17 @@ function redirectTo(islands_url){
 		}
 		if (cookie_Check=="http://www.ikea.com/es/es/" || cookie_Check=="http://ca.ikea.com/es/ca/" || cookie_Check=="http://eu.ikea.com/es/eu/" || cookie_Check=="https://www.ikea.com/es/es/" || cookie_Check=="https://ca.ikea.com/es/ca/" || cookie_Check=="https://eu.ikea.com/es/eu/"){
 			islands_url+= "?switch";
-			if(islands_url=="//www.canarias.ikea.es/?switch"){
+			if(islands_url=="http://www.canarias.ikea.es/?switch"){
 				cname = "locationPreference";
-				cvalue= "https://www.canarias.ikea.es/";
+				cvalue= "http://www.canarias.ikea.es/";
 				d = new Date();
 				d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
 				expires = "expires="+d.toUTCString();
 				document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;";
 			}
-			else if(islands_url=="//www.baleares.ikea.es/?switch"){
+			else if(islands_url=="http://www.baleares.ikea.es/?switch"){
 				cname = "locationPreference";
-				cvalue= "https://www.baleares.ikea.es/";
+				cvalue= "http://www.baleares.ikea.es/";
 				d = new Date();
 				d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
 				expires = "expires="+d.toUTCString();
