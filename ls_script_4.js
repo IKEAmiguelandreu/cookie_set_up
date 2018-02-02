@@ -94,7 +94,7 @@ function omitirPopup(){
 function callToIslands(addAlign){
 	addAlign = document.getElementsByClassName("footer-legal")[0];
 	marco = document.createElement("iframe");
-	urlMarco = "http://www.canarias.ikea.es/?switch=es";
+	urlMarco = "https://canarias.ikea.es/?switch=es";
 	marco.src = urlMarco;
 	marco.style.display="none";
 	marco.style.width = "1px";
