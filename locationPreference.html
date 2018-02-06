@@ -8,7 +8,7 @@
                 url_switch = document.location.href.split("/");
                 if (url_switch[url_switch.length-1]=="?switch=http://www.baleares.ikea.es/" ||url_switch[url_switch.length-1]=="?switch=https://www.baleares.ikea.es/"){
                     cname = "locationPreference";
-                    cvalue= "http://www.canarias.ikea.es/";
+                    cvalue= "http://www.baleares.ikea.es/";
                     d = new Date();
                     d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
                     expires = "expires="+d.toUTCString();
@@ -16,7 +16,7 @@
                 }
                 else if(url_switch[url_switch.length-1]=="?switch=http://www.canarias.ikea.es/" ||url_switch[url_switch.length-1]=="?switch=https://www.canarias.ikea.es/"){
                     cname = "locationPreference";
-                    cvalue= "http://www.baleares.ikea.es/";
+                    cvalue= "http://www.canarias.ikea.es/";
                     d = new Date();
                     d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
                     expires = "expires="+d.toUTCString();
