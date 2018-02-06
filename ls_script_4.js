@@ -2,7 +2,7 @@
 var c_val, ca, cc, cname, cvalue, d, expires, url_switch, preferedID, preferedID_text, preferedID_url, cookie_Check, addAlign, marco, urlMarco;
 
 /*SET COOKIE IF YOU NEED TO MODIFY IT*/
-function setCookie() {
+function setMyCookie() {
 		cname = "locationPreference";
 		cvalue= "https://www.ikea.com/es/es/";
 		d = new Date();
@@ -13,7 +13,7 @@ function setCookie() {
 
 
 /*EVENT HANDLE, MAIN FUNCTION THAT DISTRIBUTES make CALL TO IT*/
-function getCookie(){
+function getMyCookie(){
 	if(sessionStorage.nopopup){}
 		else{
 			cc = document.cookie.split(";");
@@ -32,10 +32,10 @@ function getCookie(){
 function checkURL(){
 	url_switch = document.location.href.split("/");
 	if (url_switch[url_switch.length-1]=="?switch"){
-		setCookie();
+		setMyCookie();
 	}
 	else{
-		getCookie();
+		getMyCookie();
 	}
 }
 
@@ -43,7 +43,7 @@ function checkURL(){
 function revisarCookie(c_val){
 	if(!sessionStorage.nopopup){
 		if(c_val=="http://www.ikea.com/es/es/" || c_val=="http://ca.ikea.com/es/ca/" || c_val=="http://eu.ikea.com/es/eu/" || c_val =="https://www.ikea.com/es/es/" || c_val=="https://ca.ikea.com/es/ca/" || c_val=="https://eu.ikea.com/es/eu/"){
-			setCookie();
+			setMyCookie();
 		}
 		else if(c_val=="http://www.baleares.ikea.es/" || c_val=="http://www.canarias.ikea.es/" || c_val=="https://www.baleares.ikea.es/" || c_val=="https://www.canarias.ikea.es/"){
 			if(c_val=="http://www.baleares.ikea.es/" || c_val=="https://www.baleares.ikea.es/") {
@@ -74,7 +74,7 @@ function drawPopUp(preferedID){
 
 /*WHEN USER DECIDES TO KEEP IN PENINSULA WEB*/
 function changeValue(){
-	setCookie();
+	setMyCookie();
 	callToIslands();
 	document.getElementById("geoPopup").style.display="none";
 }
