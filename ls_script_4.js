@@ -66,7 +66,6 @@ function revisarCookie(c_val){
 /*HANDLE POPUP FUNCTIONS*/
 function drawPopUp(preferedID){
 	document.getElementById("preferedLoc_1").innerHTML = preferedID[0];
-	document.getElementById("preferedLoc_2").innerHTML = preferedID[0];
 	document.getElementById("preferedLoc_3").innerHTML = preferedID[1];
 	var popup = document.getElementById("geoPopup");
 	popup.style.display= "block";
