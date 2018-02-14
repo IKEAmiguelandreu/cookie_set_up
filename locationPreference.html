@@ -6,7 +6,7 @@
         <script>
             function checkURL(){
                 url_switch = document.location.href.split("/");
-                if (url_switch[url_switch.length-1]=="?switch=http://www.baleares.ikea.es/" ||url_switch[url_switch.length-1]=="?switch=https://www.baleares.ikea.es/"){
+                if (url_switch[url_switch.length-1]=="locationPreference.html?switch=http://www.baleares.ikea.es/" ||url_switch[url_switch.length-1]=="locationPreference.html?switch=https://www.baleares.ikea.es/"){
                     cname = "locationPreference";
                     cvalue= "http://www.baleares.ikea.es/";
                     d = new Date();
@@ -14,7 +14,7 @@
                     expires = "expires="+d.toUTCString();
                     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;";
                 }
-                else if(url_switch[url_switch.length-1]=="?switch=http://www.canarias.ikea.es/" ||url_switch[url_switch.length-1]=="?switch=https://www.canarias.ikea.es/"){
+                else if(url_switch[url_switch.length-1]=="locationPreference.html?switch=http://www.canarias.ikea.es/" ||url_switch[url_switch.length-1]=="locationPreference.html?switch=https://www.canarias.ikea.es/"){
                     cname = "locationPreference";
                     cvalue= "http://www.canarias.ikea.es/";
                     d = new Date();

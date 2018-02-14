@@ -29,7 +29,7 @@
         url_switch = document.location.href.split("/");
         url_switch = url_switch[url_switch.length-1].split("&");
         url_switch = url_switch[1];
-        if (url_switch=="switch"){
+        if (url_switch=="?switch"){
             setMyCookie();
         }
         else{
@@ -111,7 +111,7 @@
                     d = new Date();
                     d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
                     expires = "expires="+d.toUTCString();
-		            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;";
+                    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;";
                 }
                 else if(islands_url=="//www.baleares.ikea.es/?switch"){
                     islands_url+="&utm_source=mh-bal";
@@ -120,9 +120,16 @@
                     d = new Date();
                     d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
                     expires = "expires="+d.toUTCString();
-		            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;";
+                    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;";
                 }
             }
-            else{}
+            else{
+                if(islands_url == "http://www.canarias.ikea.es/"){
+                    islands_url+=""
+                }
+                else if(islands_url == "http://www.baleares.ikea.es/"){
+                    islands_url+="&utm_source=mh-bal";
+                }
+            }
             document.location.href = islands_url;
-	}
+    }
